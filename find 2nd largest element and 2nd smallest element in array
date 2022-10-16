@@ -1,0 +1,36 @@
+#include<bits/stdc++.h> 
+using namespace std;
+
+void getElement(int arr[], int n ){
+    if(n==0 || n==1){
+        cout<< -1;
+
+    }
+    int small = INT_MAX , seco_small = INT_MAX ;
+    int large = INT_MIN , seco_large = INT_MIN;
+    for (int i=0; i<n ; i++){
+        small=min(small , arr[i]);
+        large = max(large , arr[i]);
+
+    }
+     
+    for(int i=0 ; i<n ; i++){
+        if(arr[i]<seco_small && arr[i]!=small){
+            seco_small = arr[i];
+        }
+        if(arr[i]>seco_large && arr[i]!=large){
+            seco_large = arr[i];
+        }
+
+
+    }
+    cout<<seco_large << "  " <<seco_small;
+}
+ 
+
+int main(){
+    int arr[]={1,2,3,4,5,5,5,9};
+    int n= sizeof(arr)/sizeof(arr[0]);
+    getElement(arr,n);
+
+}
